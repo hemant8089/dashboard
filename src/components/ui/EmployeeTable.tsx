@@ -1,183 +1,4 @@
-// import React, { useState } from 'react';
-// import {
-//   Box,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Paper,
-//   Avatar,
-//   Typography,
-//   TextField,
-//   useMediaQuery,
-//   useTheme,
-// } from '@mui/material';
-// import { IconButton, InputBase } from '@mui/material';
 
-// import SearchIcon from '@mui/icons-material/Search';
-
-// interface Employee {
-//   fullName: string;
-//   employeeId: string;
-//   userId: string;
-//   hireDate: string;
-//   event: string;
-//   position: string;
-//   netSalary: string;
-//   avatarUrl: string;
-// }
-
-// const employees: Employee[] = [
-//   {
-//     fullName: 'Eleanor Pena',
-//     employeeId: '9261456',
-//     userId: 'tanya.hil',
-//     hireDate: '8/21/15',
-//     event: 'New Hire',
-//     position: 'Medical Assistant',
-//     netSalary: '5,50,000',
-//     avatarUrl: '/path/to/avatar1.png',
-//   },
-//   {
-//     fullName: 'Albert Flores',
-//     employeeId: '4152764',
-//     userId: 'michael123',
-//     hireDate: '5/27/15',
-//     event: 'Transfer',
-//     position: 'UI/UX Designer',
-//     netSalary: '19,000',
-//     avatarUrl: '/path/to/avatar2.png',
-//   },
-//   {
-//     fullName: 'Arlene McCoy',
-//     employeeId: '5626082',
-//     userId: 'lawson',
-//     hireDate: '8/16/13',
-//     event: 'Re-Hire',
-//     position: 'Dog Trainer',
-//     netSalary: '90,000',
-//     avatarUrl: '/path/to/avatar3.png',
-//   },
-//   {
-//     fullName: 'Esther Howard',
-//     employeeId: '5021368',
-//     userId: 'alma.@',
-//     hireDate: '1/28/17',
-//     event: 'New Hire',
-//     position: 'President of Sales',
-//     netSalary: '15,000',
-//     avatarUrl: '/path/to/avatar4.png',
-//   },
-//   {
-//     fullName: 'Marvin McKinney',
-//     employeeId: '6690725',
-//     userId: 'debra.holt',
-//     hireDate: '9/23/16',
-//     event: 'Termination',
-//     position: 'Web Designer',
-//     netSalary: '1,03,000',
-//     avatarUrl: '/path/to/avatar5.png',
-//   },
-// ];
-
-// const EmployeeTable: React.FC = () => {
-//   const theme = useTheme();
-//   // const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-//   const [isExpanded, setIsExpanded] = useState(false);
-  
-
-//  const [searchTerm,setSearchTerm] =useState<string>('');
-//   const handleSearchClick = () => {
-//     setIsExpanded(!isExpanded);
-
-//   };
- 
-
-//   return (
-//     <Box 
-//     sx={{
-//       border: '2px solid #d3d3d3',
-//       borderRadius: '1rem',      
-//       padding: '8px',        
-//     }} 
-//     >
-//       <Box  mb={2}>
-//         <div className='flex justify-between items-center pl-[2rem] pr-[1rem] '>
-//         <Typography variant="h6" component="div">
-//           Employees
-//         </Typography>
-
-//         <Paper 
-//       component="form" 
-//       sx={{ display: 'flex', alignItems: 'center',justifyContent:'center', width: isExpanded ? 300 : 42,borderRadius: isExpanded ? '5rem' : '7rem', transition: 'width 0.3s' }}
-//     >
-//       <IconButton onClick={handleSearchClick}>
-//         <SearchIcon />
-//       </IconButton>
-//       {isExpanded && (
-//         <InputBase
-//         value={searchTerm}
-//         onChange={(e)=>setSearchTerm(e.target.value)}
-//           placeholder="search by employee name & ID"
-//           inputProps={{ 'aria-label': 'search' }}
-//           sx={{ ml: 1, flex: 1 }}
-//         />
-//       )}
-//     </Paper>
-
-
-
-//         {/* <TextField
-//           variant="outlined"
-//           placeholder="Search by Employee name & ID"
-//           size="small"
-//           sx={{ mt: 1 }}
-//           fullWidth={isSmallScreen}
-//         /> */}
-//         </div>
-//       </Box>
-//       <TableContainer
-       
-//        >
-//         <Table aria-label="employee table">
-//           <TableHead>
-//           <TableRow>
-//           <TableCell sx={{ color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Full Name</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Employee Id</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>User Id</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Hire Date</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Event</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Position</TableCell>
-//     <TableCell sx={{  color: '#4A5568', fontSize: '1rem', fontWeight: 'bold' }}>Net Salary</TableCell>
-//   </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {employees.map((employee) => (
-//               <TableRow key={employee.employeeId}>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>
-//                   <Box display="flex" alignItems="center">
-//                     <Avatar src={employee.avatarUrl} alt={employee.fullName} sx={{ mr: 2 }} />
-//                     <Typography variant="body2">{employee.fullName}</Typography>
-//                   </Box>
-//                 </TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.employeeId}</TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.userId}</TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.hireDate}</TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.event}</TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.position}</TableCell>
-//                 <TableCell sx={{  color: '#4A5568', fontSize: '0.9rem',font:"semibold"}}>{employee.netSalary}</TableCell>
-//               </TableRow>
-//             ))}
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//     </Box>
-//   );
-// };
-
-// export default EmployeeTable;
 
 
 import React, { useState } from 'react';
@@ -197,6 +18,7 @@ import {
   TablePagination,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import { AvatarImage } from '@radix-ui/react-avatar';
 
 interface Employee {
   fullName: string;
@@ -303,7 +125,8 @@ const EmployeeTable: React.FC = () => {
               <TableRow key={employee.employeeId}>
                 <TableCell sx={{ color: '#4A5568', fontSize: '0.9rem', fontWeight: 'semibold' }}>
                   <Box display="flex" alignItems="center">
-                    <Avatar src={employee.avatarUrl} alt={employee.fullName} sx={{ mr: 2 }} />
+                                
+               <Avatar src={employee.avatarUrl} alt={employee.fullName} sx={{ mr: 2 }} />
                     <Typography variant="body2">{employee.fullName}</Typography>
                   </Box>
                 </TableCell>
