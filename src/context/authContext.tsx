@@ -1,5 +1,5 @@
 import { apiLogin, apiLogout, apiSignup } from '@/api/auth';
-import React, { createContext, useContext, useState, useMemo, ReactNode, useCallback } from 'react';
+import React, { createContext, useState, useMemo, ReactNode, useCallback } from 'react';
 
 export interface AuthState {
 
@@ -20,12 +20,15 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
    
     
      const userData = await apiLogin(email, password);
+     console.log(userData);
+     
     
   }, []);
 
   // Handle signup
   const signup = useCallback(async (email: string, password: string, name: string) => {
     const userData = await apiSignup(email, password, name);
+    console.log(userData);
     
   }, []);
 

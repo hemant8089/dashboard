@@ -14,7 +14,7 @@ export const apiLogin = async (email: string, password: string) => {
       const response = await axiosInstance.post(apiURL, { email, password });
       console.log("login request", response);
       localStorage.setItem("token",response?.data?.token );
-      const token = localStorage.getItem("token");
+      // const token = localStorage.getItem("token");
       localStorage.setItem("user", JSON.stringify(response?.data?.foundUser[0]));
       return response.data;
     } catch (error) {

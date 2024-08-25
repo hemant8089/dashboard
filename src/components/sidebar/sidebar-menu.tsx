@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import Settings from "@mui/icons-material/Settings"
 
 import {
   Tooltip,
@@ -133,6 +134,11 @@ export function Menu({ isOpen }: MenuProps) {
                 )}
               </Tooltip>
             </TooltipProvider>
+
+          </li>
+
+          <li>
+            <Settings></Settings>
           </li>
         </ul>
       </nav>

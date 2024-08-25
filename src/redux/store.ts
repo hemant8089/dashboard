@@ -1,6 +1,6 @@
 // src/app/store.js
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer, { userState } from './userSlice';
+import userReducer from './userSlice';
 import userDeatailReducer from './api/userDetailsSlice';
 
 
