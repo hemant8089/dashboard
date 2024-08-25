@@ -1,10 +1,11 @@
 import {
   Camera,
   CircleCheck,
-  LayoutDashboard,
+ 
   LucideIcon,
   TriangleAlert,
   UsersRound,
+  Users
 } from "lucide-react";
 
 type Submenu = {
@@ -33,9 +34,9 @@ export function getMenuList(pathname: string): Group[] {
       menus: [
         {
           href: "/dashboard",
-          label: "Dashboard",
+          label: "Employees",
           active: pathname.includes("/dashboard"),
-          icon: LayoutDashboard,
+          icon: Users,
           submenus: [],
         },
       ],

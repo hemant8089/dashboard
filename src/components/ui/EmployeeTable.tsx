@@ -18,7 +18,6 @@ import {
   TablePagination,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { AvatarImage } from '@radix-ui/react-avatar';
 
 interface Employee {
   fullName: string;
