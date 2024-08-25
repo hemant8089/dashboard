@@ -26,7 +26,7 @@ export const OverviewCard = () => {
               <DateRangePicker />
             </div>
           </div>
-          <div className="w-full h-full grid md:grid-cols-4 grid-cols-1 gap-4">
+          <div className="w-full h-full  grid md:grid-cols-4 grid-cols-1 gap-4">
             {OverViewcards.map((card, index) => {
               return (
                 <div

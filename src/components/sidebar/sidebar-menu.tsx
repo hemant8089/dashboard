@@ -137,9 +137,43 @@ export function Menu({ isOpen }: MenuProps) {
 
           </li>
 
-          <li>
-            <Settings></Settings>
+
+          <li className=" w-full ">
+            <TooltipProvider disableHoverableContent>
+              <Tooltip delayDuration={100}>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={() => {}}
+                    variant="custom"
+                    className="w-full justify-start  "
+                  >
+                    <span className={cn(isOpen === false ? "" : "mr-4")}>
+                    <Settings sx={{color:'white'}}/>
+                     
+                    </span>
+                    <p
+                      className={cn(
+                        "whitespace-nowrap text-white",
+                        isOpen === false ? "opacity-0 hidden" : "opacity-100"
+                      )}
+                    >
+                      Settings
+                    </p>
+                  </Button>
+                </TooltipTrigger>
+                {isOpen === false && (
+                  <TooltipContent side="right">Sign out</TooltipContent>
+                )}
+              </Tooltip>
+            </TooltipProvider>
+
           </li>
+
+
+          {/* <li >
+            <Settings></Settings>
+
+          </li> */}
         </ul>
       </nav>
     </ScrollArea>
